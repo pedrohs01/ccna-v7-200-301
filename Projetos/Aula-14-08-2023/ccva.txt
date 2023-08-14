@@ -1,0 +1,39 @@
+--------------------------------------------------------------------------------------------------------------------------------------
+Ivassao fisica ivadir com o cabo console
+COMADOS
+1- enable > vc entra no modo de privilegio e pode mundar mais coisas
+2- disable > desativa o mode privilegio
+3- clock set 14:18:00 14 August 2023 > config de data hora do SW            
+4- configure terminal > configuração global
+5- hostname (nome) : colocar nome no sw
+6- service password-encryption > cripitocavia de senha
+7- service timestamps log datetime msec > marca a data e hora de quando sair algum cabo do sw 
+8- no ip domain-lookup > para nao travar
+9- banner motd #AVISO: acesso autorizado somente para funcionarios# >
+     > vai ser um aviso para que somente quem tem acesso entre 
+10- enable secret 123@senac > para colocar senha
+11- end > sair / voltar
+12- copy running-config startup-config  > salvar as coiss
+13- #username senac secret 123@senac > para criar usuario
+14- line console 0 > nova camada de configuração fisica
+15- login local > auticação local
+16- password 123@senac > se nao ter usuario local vai pedir senha
+17- logging synchronous
+18- exec-timeout 5 30 > desliga caso nao faça nada em 5min
+19- write > salvar tudo
+20- line vty 0 4 >
+21- transport input all >
+22-
+23-
+24-
+25-
+26-
+27-
+28-
+29-
+30-
+31-
+32-
+33-
+34-
+35-
