@@ -1,0 +1,48 @@
+Ethernet é uma família de tecnologias de rede de computadores com fio comumente usadas em redes de área local, redes de área metropolitana e redes de longa distância. Foi introduzido comercialmente em 1980 e padronizado pela primeira vez em 1983 como IEEE 802.3
+Em redes de computadores, as camadas físicas Fast Ethernet transportam tráfego na taxa nominal de 100 Mbit/s. A velocidade Ethernet anterior era de 10 Mbit/s. Das camadas físicas Fast Ethernet, 100BASE-TX é de longe a mais comum
+Gigabit Ethernet é o termo que descreve várias tecnologias para transmissão de quadros em uma rede na velocidade de 1 Gigabit por segundo, definido no padrão IEEE 802.3-2005. É possível encontrar redes Gigabit Ethernet no mercado usando concentrador, mas pela norma a rede só pode ser usada através de comutador.
+
+Ethernet 10mps
+     Fast Ethernet 100Mps
+     Gigabit Ethernet > 10000Mbps
+
+
+
+
+enable
+  swow running-config      
+
+    clock set 14:18:00 14 August 2023
+    configure terminal
+        hostname sw-l2-2960-1
+        service password-encryption
+        service timestamps log datetime msec
+        no ip domain-lookup
+        banner motd #AVISO: acesso autorizado somente para funcionarios#
+        enable secret 123@senac
+        username senac secret 123@senac
+        line console 0
+            login local
+            password 123@senac
+            logging synchronous
+            exec-timeout 5 30
+            exit
+        line vty 0 4
+            login local
+            password 123@senac
+            logging synchronous
+            exec-timeout 5 30
+            transport input all
+            exit
+        ip default-gateway 192.168.1.254
+        interface vlan 1
+            description Interface de SVI 
+            ip address 192.168.1.250 255.255.255.0
+            no shutdown
+            end
+    write
+
+    show running-config 
+    show ip interface brief
+    ping 192.168.1.1
+   
